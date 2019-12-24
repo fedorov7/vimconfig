@@ -12,7 +12,7 @@ if !isdirectory($VIMDIRPATH)
     silent! call mkdir($VIMDIRPATH, 'p')
 endif
 
-silent! call plug#begin($VIMDIRPATH.'/plugged')
+silent! call plug#begin($VIMDIRPATH)
 
 " Plugins in external file depending upon configuration
 source $VIMCONFIG/plugins.vim
