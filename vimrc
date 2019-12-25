@@ -24,93 +24,7 @@ syntax on
 colors jellybeans
 
 source $VIMCONFIG/settings.vim
-
-let mapleader=','
-let g:airline_powerline_fonts = 1
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:clang_format#detect_style_file=1
-let g:rbpt_colorpairs = [
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['darkred',     'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['red',         'firebrick3'],
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['brown',       'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-
-nmap <F2> :map<CR>
-
-let g:CtrlSpaceDefaultMappingKey = '<C-space> '
-
-augroup vtm_bindings
-let g:vtm_target_lang = 'ru'
-" Echo translation in the cmdline
-nmap <silent> <Leader>tt <Plug>Translate
-vmap <silent> <Leader>tt <Plug>TranslateV
-" Display translation in the popup window
-nmap <silent> <Leader>tw <Plug>TranslateW
-vmap <silent> <Leader>tw <Plug>TranslateWV
-" Replace the text with translation
-nmap <silent> <Leader>tr <Plug>TranslateR
-vmap <silent> <Leader>tr <Plug>TranslateRV
-augroup END
-
-augroup c_bindings
-  au FileType c nmap <Leader>a :LinuxCodingStyle<CR>
-augroup END
-
-" Ycm bindings
-augroup ale_bindings
-  " Bind F5 to fixing problems with ALE
-  nmap <F4> <Plug>(ale_lint)
-  nmap <F5> <Plug>(ale_fix)
-  nmap <F7> <Plug>(ale_detail)
-  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-  nmap <silent> <C-j> <Plug>(ale_next_wrap)
-augroup END
-
-let g:ale_python_pylint_options = '--include-naming-hint=y --const-naming-style=any --attr-naming-style=any --variable-naming-style=any --disable=missing-docstring'
-let g:ale_python_auto_pipenv = 1
-
-let g:ale_linters = {
-\   'c': ['clangtidy'],
-\   'cpp': ['clangtidy'],
-\}
-
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'markdown' : ['prettier'],
-\   'sh': ['shfmt'],
-\   'cmake' : ['cmakeformat'],
-\   'c': ['iwyu'],
-\   'cpp': ['iwyu'],
-\   'python' : ['autopep8', 'isort', 'yapf', 'black'],
-\}
-
-let g:airline#extensions#ale#enabled = 1
-
-let g:linuxsty_patterns = [ '/usr/src/', '/linux' ]
-
-" vim-go plugin options
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-let g:DoxygenToolkit_authorName='Alexander Fedorov'
+source $VIMCONFIG/mappings.vim
 
 augroup complete_parameter
   inoremap <silent><expr> ( complete_parameter#pre_complete("()")
@@ -122,29 +36,6 @@ augroup complete_parameter
   let g:complete_parameter_use_ultisnips_mapping = 1
 augroup END
 
-augroup go_improvemnets
-  " vim-go mappings
-  au FileType go nmap <Leader>r <Plug>(go-run)
-  au FileType go nmap <Leader>b <Plug>(go-build)
-  au FileType go nmap <Leader>t <Plug>(go-test)
-  au FileType go nmap <Leader>c <Plug>(go-coverage)
-
-  au FileType go nmap <Leader>ds <Plug>(go-def-split)
-  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-
-  au FileType go nmap <Leader>gd <Plug>(go-doc)
-  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-  au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-
-  au FileType go nmap <Leader>s <Plug>(go-implements)
-  au FileType go nmap <Leader>i <Plug>(go-info)
-  au FileType go nmap <Leader>e <Plug>(go-rename)
-
-  " Only trailing spaces visually for go
-  autocmd FileType go set nolist
-augroup END
-
 "python with virtualenv support
 python3 << EOF
 import os
@@ -154,59 +45,6 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
-
-augroup python_improvements
-  autocmd BufNewFile,BufRead *.py set ft=python
-  autocmd FileType python set tabstop=4|set softtabstop=4|set shiftwidth=4|set textwidth=79|set expandtab|set fileformat=unix
-augroup END
-
-augroup rainbow_parentheses
-  autocmd VimEnter * RainbowParenthesesToggle
-  autocmd Syntax * RainbowParenthesesLoadRound
-  autocmd Syntax * RainbowParenthesesLoadSquare
-  autocmd Syntax * RainbowParenthesesLoadBraces
-augroup END
-
-" System clipboard support
-vmap <C-c> "+y<CR>
-nmap <C-p> "+p<CR>
-
-"-------------------------------------------------------------------------------
-" CtrlSF plugin key bindings
-"-------------------------------------------------------------------------------
-nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
-
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_confirm_extra_conf=0
-let g:ycm_filepath_completion_use_working_dir = 1
-let g:ycm_key_invoke_completion =  '<S-TAB>'
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_use_ultisnips_completer = 1
-
-" Ycm bindings
-augroup ycm_bindings
-  au FileType c,cpp,python nnoremap <Leader>d :YcmCompleter GoToDeclaration<CR>
-  au FileType c,cpp,python nnoremap <Leader>f :YcmCompleter GoToDefinition<CR>
-  au FileType c,cpp,python nnoremap <Leader>g :YcmCompleter GoTo<CR>
-  au FileType c,cpp,python nnoremap <Leader>h :YcmCompleter GetDoc<CR>
-  au FileType c,cpp,python nnoremap <Leader>t :YcmCompleter GetType<CR>
-  au FileType python       nnoremap <Leader>r :YcmCompleter GoToReferences<CR>
-  au FileType c,cpp        nnoremap <Leader>i :YcmCompleter GoToImprecise<CR>
-  au FileType c,cpp        nnoremap <Leader>p :YcmCompleter GetParent<CR>
-  au FileType c,cpp        nnoremap <Leader>c :YcmCompleter ClearCompilationFlagCache<CR>
-  au FileType c,cpp nnoremap <F3> :YcmCompleter FixIt<CR>
-  au FileType c,cpp nnoremap <F8> :YcmShowDetailedDiagnostic<CR>
-  au FileType c,cpp nnoremap <F9> :YcmDiags<CR>
-augroup END
 
 "-------------------------------------------------------------------------------
 " CScope
