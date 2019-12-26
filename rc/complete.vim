@@ -1,3 +1,11 @@
+"inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+
+let g:complete_parameter_use_ultisnips_mapping = 1
+
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_key_invoke_completion =  '<S-TAB>'

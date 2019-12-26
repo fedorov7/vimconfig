@@ -25,26 +25,18 @@ colors jellybeans
 
 source $VIMCONFIG/settings.vim
 source $VIMCONFIG/mappings.vim
+source $VIMCONFIG/complete.vim
 
-augroup complete_parameter
-  inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-  smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-  imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-  smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-  imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-
-  let g:complete_parameter_use_ultisnips_mapping = 1
-augroup END
 
 "python with virtualenv support
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+"python3 << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  execfile(activate_this, dict(__file__=activate_this))
+"EOF
 
 "-------------------------------------------------------------------------------
 " CScope
