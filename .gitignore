@@ -1,6 +1,12 @@
 autoload
 ftplugin
 plugged
+bundle
+vimbackup
+sessions
+org
+!autoload/te
+!ftplugin/after
 
 # Created by https://www.gitignore.io/api/vim
 # Edit at https://www.gitignore.io/?templates=vim
