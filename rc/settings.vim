@@ -1,5 +1,9 @@
 " Various settings
 set encoding=utf8
+set fileencoding=utf-8
+set termencoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,gb1830,big5,euc-jp,euc-kr,gbk
+
 set autoread                    " read open files again when changed outside Vim
 set autowrite                   " write a modified buffer on each :next , ...
 set backspace=indent,eol,start  " backspacing over everything in insert mode
@@ -14,6 +18,8 @@ set nostartofline               " avoid moving cursor to BOL when jumping around
 set hidden
 set wrap                      	" Don't wrap lines
 set linebreak                   " Wrap lines at convenient points
+set modeline
+
 " Folds
 set foldmethod=marker           " fold based on marker
 set foldnestmax=3               " deepest fold is 3 levels
@@ -32,6 +38,12 @@ set expandtab                   " tabs are replaced with spacing
 set noswapfile
 set nobackup
 set nowritebackup
+
+"do not Ring the bell (beep or screen flash) for error messages
+set noerrorbells
+if te#env#IsVim8()
+set belloff=all
+endif
 
 " Display tabs and trailing spaces visually
 if has('X11') || has('nvim')
