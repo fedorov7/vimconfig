@@ -1,7 +1,6 @@
 " Various settings
 set encoding=utf8
 set fileencoding=utf-8
-set termencoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb1830,big5,euc-jp,euc-kr,gbk
 
 set autoread                    " read open files again when changed outside Vim
@@ -38,6 +37,8 @@ set expandtab                   " tabs are replaced with spacing
 set noswapfile
 set nobackup
 set nowritebackup
+
+set clipboard=unnamedplus
 
 "do not Ring the bell (beep or screen flash) for error messages
 set noerrorbells

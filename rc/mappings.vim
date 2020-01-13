@@ -21,8 +21,9 @@ nmap <silent> <Leader>tr <Plug>TranslateR
 vmap <silent> <Leader>tr <Plug>TranslateRV
 
 " System clipboard support
-vmap <C-c> "+y<CR>
-nmap <C-p> "+p<CR>
+noremap <C-P> "+gP
+vnoremap <C-X> "+x
+vnoremap <C-C> "+y
 
 "-------------------------------------------------------------------------------
 " CtrlSF plugin key bindings
