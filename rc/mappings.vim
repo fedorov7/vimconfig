@@ -25,6 +25,23 @@ noremap <C-P> "+gP
 vnoremap <C-X> "+x
 vnoremap <C-C> "+y
 
+" NERDCommenter toggle comment
+nmap <Leader>cc <plug>NERDCommenterComment
+
+" toggle free writing in vim (Goyo)
+nnoremap <Leader>to :Goyo<cr>
+
+" Markdown ------------------------{{{
+" Markdown preview in browser
+nnoremap <leader>mp :MarkdownPreview<cr>
+" generate markdown TOC
+nnoremap <leader>mt :silent GenTocGFM<cr>
+" update markdown TOC
+nnoremap <leader>mu :silent UpdateToc<cr>
+" Show toc sidebar
+nnoremap <leader>ms :Toc<cr>
+"}}}
+
 "-------------------------------------------------------------------------------
 " CtrlSF plugin key bindings
 "-------------------------------------------------------------------------------
@@ -172,3 +189,28 @@ if has('cscope')
         "set ttimeoutlen=100
 
 endif
+
+" Easymotion {{{
+map W <Plug>(easymotion-lineforward)
+map B <Plug>(easymotion-linebackward)
+" MultiWindow easymotion for word
+nmap <Leader>jw <Plug>(easymotion-overwin-w)
+xmap <Leader>jw <Plug>(easymotion-bd-w)
+omap <Leader>jw <Plug>(easymotion-bd-w)
+" Multi Input Find Motion:s
+nmap <Leader>js <Plug>(easymotion-sn)
+xmap <Leader>js <Plug>(easymotion-sn)
+omap <Leader>js <Plug>(easymotion-sn)
+" Multi Input Find Motion:t
+nmap <Leader>jt <Plug>(easymotion-tn)
+xmap <Leader>jt <Plug>(easymotion-tn)
+omap <Leader>jt <Plug>(easymotion-tn)
+" MultiWindow easymotion for line
+nmap <Leader>jl <Plug>(easymotion-overwin-line)
+xmap <Leader>jl <Plug>(easymotion-bd-jk)
+omap <Leader>jl <Plug>(easymotion-bd-jk)
+" MultiWindow easymotion for char
+nmap <Leader>jj <Plug>(easymotion-overwin-f)
+xmap <Leader>jj <Plug>(easymotion-bd-f)
+omap <Leader>jj <Plug>(easymotion-bd-f)
+" }}}

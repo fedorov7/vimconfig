@@ -2,14 +2,20 @@
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'fedorov7/ale'
 Plug 'Valloric/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'rhysd/vim-clang-format'
+Plug 'rdnetto/YCM-Generator',{ 'branch': 'stable' }
+Plug 'rhysd/vim-clang-format',{'for': ['c', 'cpp']}
 Plug 'tenfyzhong/CompleteParameter.vim'
+" edit
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat' "repeat enhance
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/goyo.vim',{'on': 'Goyo'}
 " helpers
 Plug 'fidian/hexmode'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'junegunn/vim-easy-align'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'dyng/ctrlsf.vim'
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -17,25 +23,33 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'voldikss/vim-translate-me'
 Plug 'liuchengxu/vim-which-key'
+Plug 'easymotion/vim-easymotion', { 'on': [ '<Plug>(easymotion-lineforward)',
+            \ '<Plug>(easymotion-linebackward)','<Plug>(easymotion-overwin-w)' ]}
 " git
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'
 " coding
+Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-abolish'
 Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 Plug 'fedorov7/vim-uefi'
-Plug 'fedorov7/ksslint'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'nsf/gocode', {'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-Plug 'vivien/vim-linux-coding-style'
-Plug 'majutsushi/tagbar'
+Plug 'fedorov7/ksslint',{'for': 'c'}
+Plug 'fatih/vim-go',{'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'nsf/gocode',{'for': 'go', 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
+Plug 'vivien/vim-linux-coding-style',{'for': ['c', 'cpp']}
+Plug 'bfrg/vim-cpp-modern',{'for': ['c', 'cpp']}
 " colors
 Plug 'lilydjwg/colorizer'
 Plug 'luochen1990/rainbow'
 Plug 'nanotech/jellybeans.vim'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'elzr/vim-json'
-Plug 'kergoth/vim-bitbake'
-Plug 'pearofducks/ansible-vim'
-Plug 'pboettch/vim-cmake-syntax'
+Plug 'kergoth/vim-bitbake',{'for': 'bitbake'}
+Plug 'pearofducks/ansible-vim',{'for': 'ansible'}
+Plug 'pboettch/vim-cmake-syntax',{'for': 'cmake'}
+" markdown
+Plug 'iamcco/markdown-preview.vim',{'for': 'markdown'}
+Plug 'iamcco/mathjax-support-for-mkdp',{'for': 'markdown'}
+Plug 'mzlogin/vim-markdown-toc',{'for': 'markdown'}
+Plug 'plasticboy/vim-markdown',{'for': 'markdown'}

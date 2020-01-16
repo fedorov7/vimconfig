@@ -2,8 +2,8 @@
 augroup misc_group
     autocmd!
     autocmd CmdwinEnter * set ft= | noremap <buffer> q :q<cr> | nmap <buffer><silent> <cr> <Enter>
-    autocmd BufRead * if &ff=="dos" | setlocal ffs=dos,unix,mac | endif  
-    autocmd VimResized * wincmd = 
+    autocmd BufRead * if &ff=="dos" | setlocal ffs=dos,unix,mac | endif
+    autocmd VimResized * wincmd =
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
                 \ exe "normal! g'\"" |
                 \ endif "jump to last position last open in vim
@@ -20,7 +20,7 @@ augroup END
 augroup filetype_group
     autocmd!
     autocmd BufRead,BufNewFile *.vt setlocal filetype=verilog
-    "automatic recognition bld file as javascript 
+    "automatic recognition bld file as javascript
     autocmd BufRead,BufNewFile *.bld setlocal filetype=javascript
     "automatic recognition xdc file as javascript
     autocmd BufRead,BufNewFile *.xdc setlocal filetype=javascript
@@ -38,7 +38,7 @@ augroup filetype_group
     autocmd FileType gitcommit setlocal nofoldenable cursorline
     autocmd FileType qfreplace,vimcalc,man setlocal nonu nornu nofoldenable | imap <buffer> <c-d> :q<cr>
                 \ | nmap <buffer> q :bdelete<cr> | setlocal matchpairs-=<:>
-    autocmd FileType vim-plug nnoremap <buffer> <silent> H :call te#plug#open_doc()<cr> 
+    autocmd FileType vim-plug nnoremap <buffer> <silent> H :call te#plug#open_doc()<cr>
                 \ | nnoremap <buffer> <silent> <leader>ol :call te#plug#browse_plugin_url()<cr>
                 \ | nnoremap <buffer> <silent> <c-t> :call te#plug#open_plugin_dir(1)<cr>
                 \ | nnoremap <buffer> <silent> D :call te#plug#show_log()<cr>
@@ -58,6 +58,3 @@ else
         autocmd misc_group FocusGained * :redraw!
     endif
 endif
-
-
-
