@@ -18,4 +18,11 @@ setlocal softtabstop=4
 setlocal expandtab
 setlocal smarttab
 
-nnoremap  <silent><buffer> <leader>tt :Toc<cr>
+" Markdown preview in browser
+nnoremap <silent><buffer><leader>mp :MarkdownPreview<cr>
+" generate markdown TOC
+nnoremap <silent><buffer><leader>mt :silent GenTocGFM<cr>
+" update markdown TOC
+nnoremap <silent><buffer><leader>mu :silent UpdateToc<cr>
+" Show toc sidebar
+nnoremap <silent><buffer><leader>ms :Toc<cr>

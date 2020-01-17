@@ -2,7 +2,6 @@
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'fedorov7/ale'
 Plug 'Valloric/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator',{ 'branch': 'stable' }
 Plug 'rhysd/vim-clang-format',{'for': ['c', 'cpp']}
 Plug 'tenfyzhong/CompleteParameter.vim'
 " edit
