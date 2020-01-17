@@ -43,6 +43,12 @@ nnoremap <silent> <A-Right> :call te#utils#tab_buf_switch(-1)<cr>
 "generate tags and cscope
 nnoremap <LocalLeader>u :call te#pg#gen_cs_out()<cr>
 
+"checkhealth
+nnoremap <silent> <Leader>ch :call te#utils#check_health()<cr>
+
+" toggle background option.
+nnoremap  <silent><leader>tb :call te#utils#OptionToggle("bg",["dark","light"])<cr>
+
 " substitution improvements
 if te#env#IsNvim()
     nnoremap <c-h> :%s/<C-R>=expand("<cword>")<cr>/
