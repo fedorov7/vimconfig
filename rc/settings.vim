@@ -40,7 +40,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 
-set clipboard=unnamedplus
+set clipboard+=unnamed
 
 "do not Ring the bell (beep or screen flash) for error messages
 set noerrorbells
@@ -57,6 +57,59 @@ else
   set list listchars=tab:\ \ ,trail:. " strings to use in 'list' mode
   set fillchars=vert:\|
   let g:NERDTreeDirArrows=0
+endif
+
+if te#env#IsNvim()
+    " Use cursor shape feature
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+
+    "let g:python_host_prog  = '/usr/bin/python2'
+    "let g:python3_host_prog = '/usr/bin/python3'
+
+    if exists('&inccommand')
+        set inccommand=nosplit
+    endif
+
+    if has('vim_starting')
+        syntax off
+    endif
+
+    set fillchars+=msgsep:‾
+    hi MsgSeparator ctermbg=black ctermfg=white
+    set wildoptions+=pum
+else
+    command! -nargs=? UpdateRemotePlugins call te#utils#EchoWarning("It is neovim's command")
+endif
+
+if te#env#IsVim8()
+    let g:t_number=v:t_number
+    let g:t_string=v:t_string
+    let g:t_func=v:t_func
+    let g:t_list=v:t_list
+    let g:t_dict=v:t_dict
+    let g:t_float=v:t_float
+    let g:t_bool=v:t_bool
+    let g:t_none=v:t_none
+    let g:t_job=v:t_job
+    let g:t_channel=v:t_channel
+    if te#env#SupportTerminal()
+        if has('patch-8.0.1743')
+            set termwinkey=<c-y>
+        else
+            set termkey=<c-y>
+        endif
+    endif
+else
+    let g:t_number=0
+    let g:t_string=1
+    let g:t_func=2
+    let g:t_list=3
+    let g:t_dict=4
+    let g:t_float=5
+    let g:t_bool=6
+    let g:t_none=7
+    let g:t_job=8
+    let g:t_channel=9
 endif
 
 let g:mapleader = "\<Space>"

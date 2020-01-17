@@ -25,6 +25,8 @@ Plug 'voldikss/vim-translate-me'
 Plug 'liuchengxu/vim-which-key'
 Plug 'easymotion/vim-easymotion', { 'on': [ '<Plug>(easymotion-lineforward)',
             \ '<Plug>(easymotion-linebackward)','<Plug>(easymotion-overwin-w)' ]}
+Plug 'neomake/neomake'
+Plug 'tracyone/neomake-multiprocess'
 " git
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'

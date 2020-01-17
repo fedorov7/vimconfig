@@ -17,19 +17,19 @@ endfunction
 let g:complete_plugin.enable_func=function('<SID>enable_ycm')
 
 "inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+"smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 
-let g:complete_parameter_use_ultisnips_mapping = 1
+"let g:complete_parameter_use_ultisnips_mapping = 1
 
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_filepath_completion_use_working_dir = 1
-let g:ycm_key_invoke_completion =  '<S-TAB>'
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_use_ultisnips_completer = 1
+"let g:ycm_add_preview_to_completeopt = 1
+"let g:ycm_filepath_completion_use_working_dir = 1
+"let g:ycm_key_invoke_completion =  '<S-TAB>'
+"let g:ycm_key_list_select_completion = ['<Down>']
+"let g:ycm_key_list_previous_completion = ['<Up>']
+"let g:ycm_use_ultisnips_completer = 1
 
 let g:ycm_warning_symbol = '!'
 let g:ycm_error_symbol = '>>'
@@ -95,8 +95,8 @@ endif
 "let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsListSnippets ='<c-tab>'
-let g:UltiSnipsJumpForwardTrigge='<c-j>'
-let g:UltiSnipsJumpBackwardTrigge='<c-k>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 "let g:UltiSnipsSnippetDirectories=['bundle/snippets/ultisnips']
 "let g:UltiSnipsSnippetsDir=g:vinux_plugin_dir.cur_val.'/snippets/ultisnips'
 call extend(g:complete_plugin.name, ['ultisnips', 'snippets'])

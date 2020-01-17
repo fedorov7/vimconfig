@@ -31,6 +31,19 @@ nmap <Leader>cc <plug>NERDCommenterComment
 " toggle free writing in vim (Goyo)
 nnoremap <Leader>to :Goyo<cr>
 
+"visual mode hit tab forward indent ,hit shift-tab backward indent
+vnoremap <TAB>  >gv
+vnoremap <s-TAB>  <gv
+
+"switch previous tab or buftab
+nnoremap <silent> <A-Left> :call te#utils#tab_buf_switch(0)<cr>
+
+"switch next tab or buftab
+nnoremap <silent> <A-Right> :call te#utils#tab_buf_switch(-1)<cr>
+
+"generate tags and cscope
+nnoremap <LocalLeader>u :call te#pg#gen_cs_out()<cr>
+
 " Markdown ------------------------{{{
 " Markdown preview in browser
 nnoremap <leader>mp :MarkdownPreview<cr>
