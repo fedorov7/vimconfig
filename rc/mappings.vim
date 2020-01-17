@@ -43,6 +43,14 @@ nnoremap <silent> <A-Right> :call te#utils#tab_buf_switch(-1)<cr>
 "generate tags and cscope
 nnoremap <LocalLeader>u :call te#pg#gen_cs_out()<cr>
 
+" substitution improvements
+if te#env#IsNvim()
+    nnoremap <c-h> :%s/<C-R>=expand("<cword>")<cr>/
+    vnoremap <c-h> :<c-u>%s/<C-R>=getline("'<")[getpos("'<")[2]-1:getpos("'>")[2]-1]<cr>/
+    nnoremap ss :%s//<left>
+    xnoremap ss :s//<left>
+endif
+
 "-------------------------------------------------------------------------------
 " CtrlSF plugin key bindings
 "-------------------------------------------------------------------------------

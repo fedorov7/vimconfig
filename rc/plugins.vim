@@ -41,6 +41,8 @@ Plug 'nsf/gocode',{'for': 'go', 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/goc
 Plug 'vivien/vim-linux-coding-style',{'for': ['c', 'cpp']}
 Plug 'bfrg/vim-cpp-modern',{'for': ['c', 'cpp']}
 Plug 'mhinz/vim-lookup', {'for': 'vim'}
+Plug 'chrisbra/vim-zsh',{'for': 'zsh'}
+Plug 'tracyone/vim-zsh-completion',{'for': ['zsh','sh']}
 " colors
 Plug 'lilydjwg/colorizer'
 Plug 'luochen1990/rainbow'
