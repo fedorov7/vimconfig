@@ -3,7 +3,7 @@ nmap <F2> :map<CR>
 nmap <F4> <Plug>(ale_lint)
 nmap <F5> <Plug>(ale_fix)
 nmap <F7> <Plug>(ale_detail)
-noremap <F12> :NERDTreeToggle .<CR> 
+noremap <F12> :NERDTreeToggle .<CR>
 nnoremap <silent><F9> :TagbarToggle<CR>
 nnoremap  <silent><leader>tt :TagbarToggle<CR>
 

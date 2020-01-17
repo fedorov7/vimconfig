@@ -64,7 +64,6 @@ let g:maplocalleader = ','
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
-let g:UltiSnipsExpandTrigger = '<tab>'
 let g:clang_format#detect_style_file=1
 
 let g:rainbow_active = 1

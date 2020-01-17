@@ -39,6 +39,7 @@ Plug 'fatih/vim-go',{'do': ':GoUpdateBinaries', 'for': 'go' }
 Plug 'nsf/gocode',{'for': 'go', 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
 Plug 'vivien/vim-linux-coding-style',{'for': ['c', 'cpp']}
 Plug 'bfrg/vim-cpp-modern',{'for': ['c', 'cpp']}
+Plug 'mhinz/vim-lookup', {'for': 'vim'}
 " colors
 Plug 'lilydjwg/colorizer'
 Plug 'luochen1990/rainbow'

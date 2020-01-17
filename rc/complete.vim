@@ -1,3 +1,21 @@
+let g:complete_plugin={}
+let g:complete_plugin.name=['YouCompleteMe']
+
+" lazyload ultisnips and YouCompleteMe
+" jume to definition (YCM)
+"generate .ycm_extra_conf.py for current directory
+function! s:enable_ycm()
+    if te#pg#top_of_kernel_tree()
+        let g:ycm_global_ycm_extra_conf = $VIMFILES.'/rc/ycm_conf_for_arm_linux.py'
+    elseif te#pg#top_of_uboot_tree()
+        let g:ycm_global_ycm_extra_conf = $VIMFILES.'/rc/ycm_conf_for_uboot.py'
+    elseif &filetype ==# 'c'
+        let g:ycm_global_ycm_extra_conf = $VIMFILES.'/rc/ycm_conf_for_c.py'
+    endif
+    call delete('.ycm_extra_conf.pyc')  | call youcompleteme#Enable()
+endfunction
+let g:complete_plugin.enable_func=function('<SID>enable_ycm')
+
 "inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
@@ -53,7 +71,7 @@ let g:ycm_filetype_blacklist = {
             \ 'infolog' : 1,
             \ 'mail' : 1
             \}
-"let g:ycm_global_ycm_extra_conf = $VIMFILES.'/rc/ycm_conf_for_c.py'
+let g:ycm_global_ycm_extra_conf = $VIMFILES.'/rc/ycm_conf_for_c.py'
 
 " Ycm bindings
 nnoremap  <silent><leader>yd :YcmDiags<CR>
@@ -67,3 +85,19 @@ nnoremap  <silent><leader>yi :YcmCompleter GoToImprecise<CR>
 nnoremap  <silent><leader>yl :YcmCompleter GoToDeclaration<CR>
 nnoremap  <silent><leader>yn :YcmCompleter GoToDefinition<CR>
 nnoremap  <silent><leader>yc :YcmCompleter ClearCompilationFlagCache<CR>
+
+" UltiSnips -----------------------{{{
+if  te#env#SupportPy2()
+    let g:UltiSnipsUsePythonVersion = 2
+else
+    let g:UltiSnipsUsePythonVersion = 3
+endif
+"let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsListSnippets ='<c-tab>'
+let g:UltiSnipsJumpForwardTrigge='<c-j>'
+let g:UltiSnipsJumpBackwardTrigge='<c-k>'
+"let g:UltiSnipsSnippetDirectories=['bundle/snippets/ultisnips']
+"let g:UltiSnipsSnippetsDir=g:vinux_plugin_dir.cur_val.'/snippets/ultisnips'
+call extend(g:complete_plugin.name, ['ultisnips', 'snippets'])
+"}}}

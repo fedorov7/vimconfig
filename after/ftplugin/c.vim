@@ -1,7 +1,17 @@
 "avoid source twice
-if exists('b:did_ftplugin') 
-    finish
+if exists('b:did_ftplugin_loaded')
+  finish
 endif
-let b:did_ftplugin = 1
+let b:did_ftplugin_loaded = 1
 
-nmap <Leader>a :LinuxCodingStyle<CR>
+setlocal cinoptions=:0,l1,t0,g0,(0)
+setlocal comments    =sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/
+setlocal cindent  "enable specific indenting for C code
+setlocal foldmethod=syntax
+setlocal colorcolumn=80
+
+nnoremap <silent><buffer><Leader>a :LinuxCodingStyle<CR>
+nnoremap <silent><buffer><Leader>cf :<C-u>ClangFormat<CR>
+vnoremap <silent><buffer><Leader>cf :ClangFormat<CR>
+
+:match Error /\s\+$/
