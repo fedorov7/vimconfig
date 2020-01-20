@@ -124,22 +124,8 @@ let g:rainbow_active = 1
 let g:CtrlSpaceDefaultMappingKey = '<C-space> '
 let g:vtm_target_lang = 'ru'
 
-let g:ale_python_pylint_options = '--include-naming-hint=y --const-naming-style=any --attr-naming-style=any --variable-naming-style=any --disable=missing-docstring'
-let g:ale_python_auto_pipenv = 1
-
-let g:ale_linters = {
-\   'c': ['clangtidy'],
-\   'cpp': ['clangtidy'],
-\}
-
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'markdown' : ['prettier'],
-\   'sh': ['shfmt'],
-\   'cmake' : ['cmakeformat'],
-\   'c': ['iwyu'],
-\   'cpp': ['iwyu'],
-\   'python' : ['autopep8', 'isort', 'yapf', 'black'],
 \}
 
 let g:linuxsty_patterns = [ '/usr/src/', '/linux' ]

@@ -1,6 +1,6 @@
 " autocompletion
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'fedorov7/ale'
+Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe'
 Plug 'rhysd/vim-clang-format',{'for': ['c', 'cpp']}
 Plug 'tenfyzhong/CompleteParameter.vim'

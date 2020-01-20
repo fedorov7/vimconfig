@@ -31,3 +31,5 @@ nnoremap  <silent><buffer><Leader>gb <Plug>(go-doc-browser)
 nnoremap  <silent><buffer><Leader>s <Plug>(go-implements)
 nnoremap  <silent><buffer><Leader>i <Plug>(go-info)
 nnoremap  <silent><buffer><Leader>e <Plug>(go-rename)
+
+let b:ale_linters = ['gometalinter', 'gofmt']

@@ -20,3 +20,5 @@ else
 endif
 
 nnoremap <buffer> <silent> K :call te#utils#find_mannel()<cr>
+
+let b:ale_fixers = ['shfmt']

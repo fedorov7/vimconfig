@@ -26,3 +26,5 @@ nnoremap <silent><buffer><leader>mt :silent GenTocGFM<cr>
 nnoremap <silent><buffer><leader>mu :silent UpdateToc<cr>
 " Show toc sidebar
 nnoremap <silent><buffer><leader>ms :Toc<cr>
+
+let b:ale_fixers = ['prettier']
