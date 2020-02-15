@@ -101,3 +101,6 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 "let g:UltiSnipsSnippetsDir=g:vinux_plugin_dir.cur_val.'/snippets/ultisnips'
 call extend(g:complete_plugin.name, ['ultisnips', 'snippets'])
 "}}}
+
+call te#feat#register_vim_plug_insert_setting([g:complete_plugin.enable_func],
+            \ g:complete_plugin.name)

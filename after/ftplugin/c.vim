@@ -8,7 +8,6 @@ setlocal cinoptions=:0,l1,t0,g0,(0)
 setlocal comments    =sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/
 setlocal cindent  "enable specific indenting for C code
 setlocal foldmethod=syntax
-setlocal colorcolumn=80
 
 nnoremap <silent><buffer><Leader>a :LinuxCodingStyle<CR>
 nnoremap <silent><buffer><Leader>cf :<C-u>ClangFormat<CR>

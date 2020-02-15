@@ -93,3 +93,6 @@ nmap <Leader>jj <Plug>(easymotion-overwin-f)
 xmap <Leader>jj <Plug>(easymotion-bd-f)
 omap <Leader>jj <Plug>(easymotion-bd-f)
 " }}}
+"
+nnoremap <C-\>g :call te#complete#goto_def("sp")<cr>
+nnoremap <LocalLeader>g :call te#complete#goto_def("")<cr>
