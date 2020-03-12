@@ -26,6 +26,7 @@ Plug 'easymotion/vim-easymotion', { 'on': [ '<Plug>(easymotion-lineforward)',
             \ '<Plug>(easymotion-linebackward)','<Plug>(easymotion-overwin-w)' ]}
 Plug 'neomake/neomake'
 Plug 'tracyone/neomake-multiprocess'
+Plug 'adah1972/fencview',{'on': 'FencManualEncoding'}
 " git
 Plug 'gregsexton/gitv'
 Plug 'tpope/vim-fugitive'

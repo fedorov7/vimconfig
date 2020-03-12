@@ -201,3 +201,16 @@ let g:jellybeans_overrides = {
 \}
 set background=dark
 "}}}
+
+" FencView ------------------------{{{
+let g:fencview_autodetect=0
+let g:fencview_auto_patterns='*.txt,*.htm{l\=},*.c,*.cpp,*.s,*.vim'
+function! FencToggle()
+    call te#utils#EchoWarning('Current file encoding is '.&fileencoding)
+    FencManualEncoding utf-8
+    call te#utils#EchoWarning('Change file encoding to utf-8')
+endfunction
+" Convert file's encode
+nnoremap  <silent><leader>tf :call FencToggle()<cr>
+"}}}
+"
