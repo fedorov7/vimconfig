@@ -136,6 +136,8 @@ function! te#pg#do_cs_tags(dir, option) abort
     endif
     if(!te#env#IsWindows())
         let l:generate_cscopefiles='find ' .a:dir. ' -name "*.[chsS]" > '  . l:cscopefiles
+        let l:generate_cscopefiles='find ' .a:dir. ' -name "*.cpp" >> '  . l:cscopefiles
+        let l:generate_cscopefiles='find ' .a:dir. ' -name "*.cc" >> '  . l:cscopefiles
     else
         let l:generate_cscopefiles='dir /s/b *.c,*.cpp,*.h,*.java,*.cs,*.s,*.asm > '.l:cscopefiles
     endif
@@ -166,6 +168,34 @@ function! te#pg#gen_cs_out() abort
     execute 'cd '.l:project_root
 endfunction
 
+" generate cscope database for conan
+function! te#pg#gen_cs_conan(dir) abort
+    let l:project_root=getcwd()
+    let l:cscopefiles=a:dir.'/cscope.files'
+    let l:cscopefilessort=a:dir.'/cscope.filessort'
+    let l:cscopeout=a:dir.'/cscope.out'
+    if filereadable(l:cscopefiles)
+        let csfilesdeleted=delete(l:cscopefiles)
+        if(csfilesdeleted!=0)
+            :call te#utils#EchoWarning('Fail to do cscope! I cannot delete the cscope.files')
+            return
+        endif
+    endif
+    exec 'cd '.a:dir
+
+    call te#utils#run_command('find ' .a:dir. ' -name "*.[chsS]" > '  . l:cscopefiles
+                \.' && find ' .a:dir. ' -name "*.cpp" >> '  . l:cscopefiles
+                \.' && find ' .a:dir. ' -name "*.cc" >> '  .l:cscopefiles
+                \.' && sort -o ' .l:cscopefilessort .' ' .l:cscopefiles
+                \.' && cscope -Rbkq -i '.l:cscopefilessort)
+    execute 'cd '.l:project_root
+endfunction
+
+function! te#pg#add_cs_conan(dir) abort
+    let l:cscope_db_name='cscope.out'
+    silent! execute 'cs kill '.a:dir.'/'.l:cscope_db_name
+    exec 'cs add '.a:dir.'/'.l:cscope_db_name
+endfunction
 
 "make 
 function! te#pg#do_make() abort

@@ -42,6 +42,8 @@ nnoremap <silent> <A-Right> :call te#utils#tab_buf_switch(-1)<cr>
 
 "generate tags and cscope
 nnoremap <LocalLeader>u :call te#pg#gen_cs_out()<cr>
+nnoremap <LocalLeader>cu :call te#pg#gen_cs_conan("~/.conan")<cr>
+nnoremap <LocalLeader>ca :call te#pg#add_cs_conan("~/.conan")<cr>
 
 "checkhealth
 nnoremap <silent> <Leader>ch :call te#utils#check_health()<cr>
