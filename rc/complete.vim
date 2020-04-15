@@ -3,16 +3,8 @@ let g:complete_plugin.name=['YouCompleteMe']
 
 " lazyload ultisnips and YouCompleteMe
 " jume to definition (YCM)
-"generate .ycm_extra_conf.py for current directory
 function! s:enable_ycm()
-    if te#pg#top_of_kernel_tree()
-        let g:ycm_global_ycm_extra_conf = $VIMFILES.'/rc/ycm_conf_for_arm_linux.py'
-    elseif te#pg#top_of_uboot_tree()
-        let g:ycm_global_ycm_extra_conf = $VIMFILES.'/rc/ycm_conf_for_uboot.py'
-    elseif &filetype ==# 'c'
-        let g:ycm_global_ycm_extra_conf = $VIMFILES.'/rc/ycm_conf_for_c.py'
-    endif
-    call delete('.ycm_extra_conf.pyc')  | call youcompleteme#Enable()
+    call youcompleteme#Enable()
 endfunction
 let g:complete_plugin.enable_func=function('<SID>enable_ycm')
 
