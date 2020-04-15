@@ -16,7 +16,10 @@ vnoremap <silent><buffer><Leader>cf :ClangFormat<CR>
 :match Error /\s\+$/
 
 let b:ale_linters = ['clangtidy', 'cppcheck', 'cpplint']
-let b:ale_c_clangtidy_checks = ['*', '-fuchsia-*']
+let b:ale_c_clangtidy_checks = ['*', '-fuchsia-*', '-llvm*', '-modernize-use-trailing-return-type' ]
 let b:ale_c_cppcheck_options = '--enable=all'
-let b:ale_cpp_clangtidy_checks = ['*', '-fuchsia-*']
+
+let b:ale_fixers = ['clangtidy']
+
+let b:ale_cpp_clangtidy_checks = ['*', '-fuchsia-*', '-llvm*', '-modernize-use-trailing-return-type' ]
 let b:ale_cpp_cppcheck_options = '--enable=all'
