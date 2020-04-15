@@ -57,3 +57,5 @@ Plug 'iamcco/markdown-preview.vim',{'for': 'markdown'}
 Plug 'iamcco/mathjax-support-for-mkdp',{'for': 'markdown'}
 Plug 'mzlogin/vim-markdown-toc',{'for': 'markdown'}
 Plug 'plasticboy/vim-markdown',{'for': 'markdown'}
+" plantuml
+Plug 'aklt/plantuml-syntax'
