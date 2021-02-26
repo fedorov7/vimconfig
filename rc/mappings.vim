@@ -98,3 +98,4 @@ omap <Leader>jj <Plug>(easymotion-bd-f)
 "
 nnoremap <C-\>g :call te#complete#goto_def("sp")<cr>
 nnoremap <LocalLeader>g :call te#complete#goto_def("")<cr>
+nnoremap <expr><silent> <Enter> &buftype ==# 'quickfix' ? "\<CR>" : ":call te#complete#goto_def(\"\")\<cr>"

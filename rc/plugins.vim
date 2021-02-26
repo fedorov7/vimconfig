@@ -53,6 +53,8 @@ Plug 'elzr/vim-json'
 Plug 'kergoth/vim-bitbake',{'for': 'bitbake'}
 Plug 'pearofducks/ansible-vim',{'for': 'ansible'}
 Plug 'pboettch/vim-cmake-syntax',{'for': 'cmake'}
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
+Plug 'justinmk/vim-syntax-extra',{'for': ['c', 'cpp', 'lex', 'yacc']}
 " markdown
 Plug 'iamcco/markdown-preview.vim',{'for': 'markdown'}
 Plug 'iamcco/mathjax-support-for-mkdp',{'for': 'markdown'}
