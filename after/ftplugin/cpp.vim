@@ -1,14 +1,3 @@
-"avoid source twice
-if exists('b:did_ftplugin_loaded')
-  finish
+if te#env#Executable('cppman')
+    let g:manpager#man_executable='cppman'
 endif
-let b:did_ftplugin_loaded = 1
-
-setlocal colorcolumn=100
-
-nnoremap <silent><buffer><Leader>cf :<C-u>ClangFormat<CR>
-vnoremap <silent><buffer><Leader>cf :ClangFormat<CR>
-
-:match Error /\s\+$/
-
-let b:ale_linters = ['clangtidy']

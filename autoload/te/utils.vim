@@ -72,6 +72,12 @@ function! te#utils#EchoWarning(str,...) abort
         call add(s:global_echo_str, a:str)
         return
     endif
+
+    if getbufvar(bufnr("%"), '&buftype', 'ERROR') ==# 'terminal'
+        redraw!
+        execut 'echohl '.l:level | echom '['.l:prompt.'] '.a:str | echohl None
+        return
+    endif
     if te#env#IsNvim() && te#env#SupportFloatingWindows() == 2
         let l:str='['.l:prompt.'] '.a:str
         let l:win={}
@@ -301,7 +307,7 @@ function! te#utils#find_mannel() abort
         return -1
     endif
     let l:cur_word=expand('<cword>')
-    if &filetype ==# 'sh'
+    if &filetype =~# '\<sh\>\|\<cpp\>'
         let l:ret = te#utils#GetError(l:man_cmd.' '.l:cur_word,'\cno \(manual\|entry\).*')
     else
         let l:ret = te#utils#GetError(l:man_cmd.' 2 '.l:cur_word,'\cno \(manual\|entry\).*')
