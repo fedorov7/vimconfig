@@ -13,7 +13,7 @@ nnoremap <silent><buffer><Leader>a :LinuxCodingStyle<CR>
 nnoremap <silent><buffer><Leader>cf :<C-u>ClangFormat<CR>
 vnoremap <silent><buffer><Leader>cf :ClangFormat<CR>
 
-if &ft == 'cpp'
+if &filetype ==# 'cpp'
     execute 'source '.$VIMFILES.'/after/ftplugin/cpp.vim'
 else
 setlocal colorcolumn=80
@@ -21,11 +21,8 @@ endif
 
 :match Error /\s\+$/
 
-let b:ale_linters = ['clangtidy', 'cppcheck', 'cpplint']
+let b:ale_linters = ['clangtidy', 'cpplint']
 let b:ale_c_clangtidy_checks = ['*', '-fuchsia-*', '-llvm*', '-modernize-use-trailing-return-type' ]
-let b:ale_c_cppcheck_options = '--enable=all'
 
 let b:ale_fixers = ['clangtidy']
-
 let b:ale_cpp_clangtidy_checks = ['*', '-fuchsia-*', '-llvm*', '-modernize-use-trailing-return-type' ]
-let b:ale_cpp_cppcheck_options = '--enable=all'
