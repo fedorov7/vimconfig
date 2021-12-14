@@ -22,7 +22,7 @@ endif
 :match Error /\s\+$/
 
 let b:ale_linters = ['clangtidy', 'cpplint']
-let b:ale_c_clangtidy_checks = ['*', '-fuchsia-*', '-llvm*', '-modernize-use-trailing-return-type' ]
+let b:ale_c_clangtidy_checks = ['*', '-fuchsia-*', '-llvm*', '-modernize-use-trailing-return-type', '-altera-*', '-cppcoreguidelines-avoid-magic-numbers', '-readability-magic-numbers' ]
 
 let b:ale_fixers = ['clangtidy']
-let b:ale_cpp_clangtidy_checks = ['*', '-fuchsia-*', '-llvm*', '-modernize-use-trailing-return-type' ]
+let b:ale_cpp_clangtidy_checks = ['*', '-fuchsia-*', '-llvm*', '-modernize-use-trailing-return-type', '-altera-*', '-cppcoreguidelines-avoid-magic-numbers', '-readability-magic-numbers' ]
