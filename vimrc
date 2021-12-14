@@ -64,7 +64,7 @@ call te#feat#source_rc('settings.vim')
 call te#feat#source_rc('mappings.vim')
 call te#feat#source_rc('complete.vim')
 call te#feat#source_rc('jumping.vim')
-
+call te#feat#source_rc('lua.vim')
 
 filetype plugin indent on
 syntax on
